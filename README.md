@@ -229,7 +229,7 @@ Solar energy is booming, but performance prediction in real-world conditions is 
 
 - Soiling and wind cooling modeled as simple correction factors.
 
-## 🙋 About This Project
+# About This Project
 
 I built this project as a way to learn how machine learning can be applied to renewable energy problems, specifically solar panel performance. My background is in materials engineering, but I’ve been working on broadening my skills in computational methods and data-driven approaches. This project was a chance to combine those interests and taking real-world data and applying different ML algorithms to see what works best.
 
