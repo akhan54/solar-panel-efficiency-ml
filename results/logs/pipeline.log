@@ -1,0 +1,210 @@
+2025-09-28 04:28:13 | INFO     | __main__:main:115 - Starting Solar Panel Efficiency Prediction Pipeline
+2025-09-28 04:28:13 | INFO     | __main__:main:120 - Configuration loaded from: config/config.yaml
+2025-09-28 04:28:13 | INFO     | train:__init__:87 - Pipeline initialized successfully
+2025-09-28 04:28:13 | INFO     | train:run:91 - Starting complete ML pipeline
+2025-09-28 04:28:13 | INFO     | train:_load_and_validate_data:139 - Loading and validating datasets
+2025-09-28 04:28:13 | INFO     | src.data.loader:load_datasets:32 - Loading training data from: data\raw\train.csv
+2025-09-28 04:28:13 | INFO     | src.data.loader:load_datasets:33 - Loading test data from: data\raw\test.csv
+2025-09-28 04:28:13 | INFO     | src.data.loader:load_datasets:39 - Training data shape: (20000, 17)
+2025-09-28 04:28:13 | INFO     | src.data.loader:load_datasets:40 - Test data shape: (12000, 16)
+2025-09-28 04:28:13 | INFO     | src.data.loader:_clean_data:79 - Basic data cleaning completed
+2025-09-28 04:28:13 | INFO     | src.data.loader:_clean_data:79 - Basic data cleaning completed
+2025-09-28 04:28:13 | INFO     | src.data.validator:validate_dataset:27 - Starting validation for training
+2025-09-28 04:28:13 | INFO     | src.data.validator:validate_dataset:43 - Validation completed for training. Quality score: 80.00
+2025-09-28 04:28:13 | INFO     | src.data.validator:validate_dataset:27 - Starting validation for test
+2025-09-28 04:28:13 | INFO     | src.data.validator:validate_dataset:43 - Validation completed for test. Quality score: 80.00
+2025-09-28 04:28:13 | INFO     | train:_load_and_validate_data:149 - Training data quality score: 80.00
+2025-09-28 04:28:13 | INFO     | train:_load_and_validate_data:150 - Test data quality score: 80.00
+2025-09-28 04:28:13 | INFO     | train:_load_and_validate_data:158 - Training data: 20000 rows, 17 columns
+2025-09-28 04:28:13 | INFO     | train:_load_and_validate_data:159 - Missing values in training data: {'id': 0, 'temperature': 1001, 'irradiance': 987, 'humidity': 127, 'panel_age': 1011, 'maintenance_count': 1027, 'soiling_ratio': 1010, 'voltage': 993, 'current': 977, 'module_temperature': 978, 'cloud_coverage': 1010, 'wind_speed': 119, 'pressure': 135, 'string_id': 0, 'error_code': 5912, 'installation_type': 5028, 'efficiency': 0}
+2025-09-28 04:28:13 | INFO     | train:_preprocess_data:163 - Starting data preprocessing
+2025-09-28 04:28:13 | INFO     | train:_preprocess_data:174 - Performing feature engineering
+2025-09-28 04:28:13 | INFO     | src.features.engineering:engineer_features:32 - Starting feature engineering process
+2025-09-28 04:28:13 | INFO     | src.features.engineering:engineer_features:57 - Feature engineering completed. New shape: (20000, 41)
+2025-09-28 04:28:13 | INFO     | src.features.engineering:engineer_features:58 - Added 26 new features
+2025-09-28 04:28:13 | INFO     | src.features.engineering:engineer_features:32 - Starting feature engineering process
+2025-09-28 04:28:13 | INFO     | src.features.engineering:engineer_features:57 - Feature engineering completed. New shape: (12000, 41)
+2025-09-28 04:28:13 | INFO     | src.features.engineering:engineer_features:58 - Added 52 new features
+2025-09-28 04:28:13 | INFO     | train:_preprocess_data:182 - Feature engineering added 52 new features
+2025-09-28 04:28:13 | INFO     | train:_preprocess_data:196 - Data split - Train: 16000, Validation: 4000, Test: 12000
+2025-09-28 04:28:13 | INFO     | train:_select_features:200 - Performing feature selection
+2025-09-28 04:28:13 | INFO     | src.features.selection:select_features:24 - Starting feature selection on 41 features
+2025-09-28 04:28:13 | INFO     | src.features.selection:select_features:28 - Found 38 numerical features for selection
+2025-09-28 04:28:13 | INFO     | src.features.selection:select_features:52 - Applying univariate feature selection
+2025-09-28 04:28:13 | INFO     | src.features.selection:select_features:57 - Univariate selected 25 features
+2025-09-28 04:28:13 | INFO     | src.features.selection:select_features:64 - Applying tree-based feature selection
+2025-09-28 04:30:16 | INFO     | src.features.selection:select_features:73 - Tree-based selected 20 features
+2025-09-28 04:30:16 | INFO     | src.features.selection:select_features:80 - Applying correlation-based feature selection
+2025-09-28 04:30:16 | INFO     | src.features.selection:select_features:84 - Correlation-based selected 15 features
+2025-09-28 04:30:16 | INFO     | src.features.selection:get_consensus_features:114 - Selected 18 consensus features
+2025-09-28 04:30:16 | INFO     | train:_select_features:215 - Selected 18 features from 41 total features
+2025-09-28 04:30:16 | INFO     | train:_train_models:259 - Starting model training
+2025-09-28 04:30:16 | INFO     | train:_train_models:262 - Training 7 models: ['linear_regression', 'ridge', 'lasso', 'elastic_net', 'decision_tree', 'svr', 'knn']
+2025-09-28 04:30:16 | INFO     | train:_train_models:303 - Training linear_regression
+2025-09-28 04:30:16 | INFO     | src.models.base:fit:44 - Training Linear Regression
+2025-09-28 04:30:16 | INFO     | src.models.base:fit:53 - Linear Regression training completed
+2025-09-28 04:30:16 | INFO     | src.evaluation.metrics:evaluate_model:72 - Evaluating model: linear_regression
+2025-09-28 04:30:16 | INFO     | src.evaluation.metrics:evaluate_model:104 - Model linear_regression - R²: 0.4452, RMSE: 0.1056
+2025-09-28 04:30:16 | INFO     | train:_train_models:328 - Completed linear_regression - R²: 0.4452
+2025-09-28 04:30:16 | INFO     | train:_train_models:303 - Training ridge
+2025-09-28 04:30:16 | INFO     | src.models.base:fit:44 - Training Ridge Regression
+2025-09-28 04:30:16 | INFO     | src.models.base:fit:53 - Ridge Regression training completed
+2025-09-28 04:30:16 | INFO     | src.evaluation.metrics:evaluate_model:72 - Evaluating model: ridge
+2025-09-28 04:30:16 | INFO     | src.evaluation.metrics:evaluate_model:104 - Model ridge - R²: 0.4448, RMSE: 0.1057
+2025-09-28 04:30:16 | INFO     | train:_train_models:328 - Completed ridge - R²: 0.4448
+2025-09-28 04:30:16 | INFO     | train:_train_models:303 - Training lasso
+2025-09-28 04:30:16 | INFO     | src.models.base:fit:44 - Training Lasso Regression
+2025-09-28 04:30:17 | INFO     | src.models.base:fit:53 - Lasso Regression training completed
+2025-09-28 04:30:17 | INFO     | src.evaluation.metrics:evaluate_model:72 - Evaluating model: lasso
+2025-09-28 04:30:17 | INFO     | src.evaluation.metrics:evaluate_model:104 - Model lasso - R²: 0.3719, RMSE: 0.1124
+2025-09-28 04:30:17 | INFO     | train:_train_models:328 - Completed lasso - R²: 0.3719
+2025-09-28 04:30:17 | INFO     | train:_train_models:303 - Training elastic_net
+2025-09-28 04:30:17 | INFO     | src.models.base:fit:44 - Training ElasticNet
+2025-09-28 04:30:17 | INFO     | src.models.base:fit:53 - ElasticNet training completed
+2025-09-28 04:30:17 | INFO     | src.evaluation.metrics:evaluate_model:72 - Evaluating model: elastic_net
+2025-09-28 04:30:17 | INFO     | src.evaluation.metrics:evaluate_model:104 - Model elastic_net - R²: 0.3719, RMSE: 0.1124
+2025-09-28 04:30:17 | INFO     | train:_train_models:328 - Completed elastic_net - R²: 0.3719
+2025-09-28 04:30:17 | INFO     | train:_train_models:303 - Training decision_tree
+2025-09-28 04:30:17 | INFO     | src.models.base:fit:44 - Training Decision Tree
+2025-09-28 04:30:18 | INFO     | src.models.base:fit:53 - Decision Tree training completed
+2025-09-28 04:30:18 | INFO     | src.evaluation.metrics:evaluate_model:72 - Evaluating model: decision_tree
+2025-09-28 04:30:18 | INFO     | src.evaluation.metrics:evaluate_model:104 - Model decision_tree - R²: 0.2101, RMSE: 0.1260
+2025-09-28 04:30:18 | INFO     | train:_train_models:328 - Completed decision_tree - R²: 0.2101
+2025-09-28 04:30:18 | INFO     | train:_train_models:303 - Training svr
+2025-09-28 04:30:18 | INFO     | src.models.base:fit:44 - Training Support Vector Regression
+2025-09-28 04:30:25 | INFO     | src.models.base:fit:53 - Support Vector Regression training completed
+2025-09-28 04:30:28 | INFO     | src.evaluation.metrics:evaluate_model:72 - Evaluating model: svr
+2025-09-28 04:30:28 | INFO     | src.evaluation.metrics:evaluate_model:104 - Model svr - R²: 0.2950, RMSE: 0.1191
+2025-09-28 04:30:28 | INFO     | train:_train_models:328 - Completed svr - R²: 0.2950
+2025-09-28 04:30:28 | INFO     | train:_train_models:303 - Training knn
+2025-09-28 04:30:28 | INFO     | src.models.base:fit:44 - Training K-Nearest Neighbors
+2025-09-28 04:30:28 | INFO     | src.models.base:fit:53 - K-Nearest Neighbors training completed
+2025-09-28 04:30:31 | INFO     | src.evaluation.metrics:evaluate_model:72 - Evaluating model: knn
+2025-09-28 04:30:31 | INFO     | src.evaluation.metrics:evaluate_model:104 - Model knn - R²: 0.1821, RMSE: 0.1282
+2025-09-28 04:30:31 | INFO     | train:_train_models:328 - Completed knn - R²: 0.1821
+2025-09-28 04:30:31 | INFO     | train:_train_models:334 - Successfully trained 7 models
+2025-09-28 04:30:31 | INFO     | train:_select_best_model:355 - Best model selected: linear_regression (R² = 0.4452)
+2025-09-28 04:30:31 | INFO     | train:_generate_final_predictions:360 - Generating final predictions on test set
+2025-09-28 04:30:31 | INFO     | train:_generate_final_predictions:372 - Test predictions saved to submission.csv
+2025-09-28 04:30:31 | INFO     | train:_generate_visualizations:378 - Generating visualizations
+2025-09-28 04:30:31 | INFO     | src.evaluation.visualization:_create_plotly_comparison:99 - Model comparison plot saved to results\plots\model_comparison.html
+2025-09-28 04:30:33 | INFO     | src.evaluation.visualization:plot_predictions_vs_actual:192 - Predictions vs actual plot saved to results\plots\predictions_vs_actual_linear_regression.png
+2025-09-28 04:30:37 | INFO     | src.evaluation.visualization:plot_residuals_analysis:243 - Residuals analysis plot saved to results\plots\residuals_analysis_linear_regression.png
+2025-09-28 04:30:38 | INFO     | src.evaluation.visualization:plot_feature_importance:282 - Feature importance plot saved to results\plots\feature_importance_linear_regression.png
+2025-09-28 04:30:40 | INFO     | src.evaluation.visualization:plot_predictions_vs_actual:192 - Predictions vs actual plot saved to results\plots\predictions_vs_actual_ridge.png
+2025-09-28 04:30:43 | INFO     | src.evaluation.visualization:plot_residuals_analysis:243 - Residuals analysis plot saved to results\plots\residuals_analysis_ridge.png
+2025-09-28 04:30:44 | INFO     | src.evaluation.visualization:plot_feature_importance:282 - Feature importance plot saved to results\plots\feature_importance_ridge.png
+2025-09-28 04:30:46 | INFO     | src.evaluation.visualization:plot_predictions_vs_actual:192 - Predictions vs actual plot saved to results\plots\predictions_vs_actual_elastic_net.png
+2025-09-28 04:30:50 | INFO     | src.evaluation.visualization:plot_residuals_analysis:243 - Residuals analysis plot saved to results\plots\residuals_analysis_elastic_net.png
+2025-09-28 04:30:51 | INFO     | src.evaluation.visualization:plot_feature_importance:282 - Feature importance plot saved to results\plots\feature_importance_elastic_net.png
+2025-09-28 04:30:51 | INFO     | train:_generate_visualizations:412 - Visualizations completed successfully
+2025-09-28 04:30:51 | INFO     | train:_generate_reports:419 - Generating reports
+2025-09-28 04:30:51 | INFO     | train:_generate_reports:434 - Reports generated and saved
+2025-09-28 04:30:51 | INFO     | train:_save_results:560 - Saving results and model artifacts
+2025-09-28 04:30:51 | INFO     | train:_save_results:600 - All results saved to results
+2025-09-28 04:30:51 | INFO     | train:run:134 - Pipeline completed successfully. Best model: linear_regression
+2025-09-28 04:30:51 | INFO     | __main__:main:149 - Pipeline completed successfully!
+2025-09-28 04:30:51 | INFO     | __main__:main:150 - Results saved to: results
+2025-09-28 04:30:51 | INFO     | __main__:main:156 - Best model: linear_regression (R² = 0.4452)
+2025-09-28 04:31:02 | INFO     | __main__:main:115 - Starting Solar Panel Efficiency Prediction Pipeline
+2025-09-28 04:31:02 | INFO     | __main__:main:120 - Configuration loaded from: config/config.yaml
+2025-09-28 04:31:02 | INFO     | train:__init__:87 - Pipeline initialized successfully
+2025-09-28 04:31:02 | INFO     | train:run:91 - Starting complete ML pipeline
+2025-09-28 04:31:02 | INFO     | train:_load_and_validate_data:139 - Loading and validating datasets
+2025-09-28 04:31:02 | INFO     | src.data.loader:load_datasets:32 - Loading training data from: data\raw\train.csv
+2025-09-28 04:31:02 | INFO     | src.data.loader:load_datasets:33 - Loading test data from: data\raw\test.csv
+2025-09-28 04:31:02 | INFO     | src.data.loader:load_datasets:39 - Training data shape: (20000, 17)
+2025-09-28 04:31:02 | INFO     | src.data.loader:load_datasets:40 - Test data shape: (12000, 16)
+2025-09-28 04:31:02 | INFO     | src.data.loader:_clean_data:79 - Basic data cleaning completed
+2025-09-28 04:31:02 | INFO     | src.data.loader:_clean_data:79 - Basic data cleaning completed
+2025-09-28 04:31:02 | INFO     | src.data.validator:validate_dataset:27 - Starting validation for training
+2025-09-28 04:31:02 | INFO     | src.data.validator:validate_dataset:43 - Validation completed for training. Quality score: 80.00
+2025-09-28 04:31:02 | INFO     | src.data.validator:validate_dataset:27 - Starting validation for test
+2025-09-28 04:31:02 | INFO     | src.data.validator:validate_dataset:43 - Validation completed for test. Quality score: 80.00
+2025-09-28 04:31:02 | INFO     | train:_load_and_validate_data:149 - Training data quality score: 80.00
+2025-09-28 04:31:02 | INFO     | train:_load_and_validate_data:150 - Test data quality score: 80.00
+2025-09-28 04:31:02 | INFO     | train:_load_and_validate_data:158 - Training data: 20000 rows, 17 columns
+2025-09-28 04:31:02 | INFO     | train:_load_and_validate_data:159 - Missing values in training data: {'id': 0, 'temperature': 1001, 'irradiance': 987, 'humidity': 127, 'panel_age': 1011, 'maintenance_count': 1027, 'soiling_ratio': 1010, 'voltage': 993, 'current': 977, 'module_temperature': 978, 'cloud_coverage': 1010, 'wind_speed': 119, 'pressure': 135, 'string_id': 0, 'error_code': 5912, 'installation_type': 5028, 'efficiency': 0}
+2025-09-28 04:31:02 | INFO     | train:_preprocess_data:163 - Starting data preprocessing
+2025-09-28 04:31:02 | INFO     | train:_preprocess_data:174 - Performing feature engineering
+2025-09-28 04:31:02 | INFO     | src.features.engineering:engineer_features:32 - Starting feature engineering process
+2025-09-28 04:31:02 | INFO     | src.features.engineering:engineer_features:57 - Feature engineering completed. New shape: (20000, 41)
+2025-09-28 04:31:02 | INFO     | src.features.engineering:engineer_features:58 - Added 26 new features
+2025-09-28 04:31:02 | INFO     | src.features.engineering:engineer_features:32 - Starting feature engineering process
+2025-09-28 04:31:02 | INFO     | src.features.engineering:engineer_features:57 - Feature engineering completed. New shape: (12000, 41)
+2025-09-28 04:31:02 | INFO     | src.features.engineering:engineer_features:58 - Added 52 new features
+2025-09-28 04:31:02 | INFO     | train:_preprocess_data:182 - Feature engineering added 52 new features
+2025-09-28 04:31:02 | INFO     | train:_preprocess_data:196 - Data split - Train: 16000, Validation: 4000, Test: 12000
+2025-09-28 04:31:02 | INFO     | train:_select_features:200 - Performing feature selection
+2025-09-28 04:31:02 | INFO     | src.features.selection:select_features:24 - Starting feature selection on 41 features
+2025-09-28 04:31:02 | INFO     | src.features.selection:select_features:28 - Found 38 numerical features for selection
+2025-09-28 04:31:02 | INFO     | src.features.selection:select_features:52 - Applying univariate feature selection
+2025-09-28 04:31:02 | INFO     | src.features.selection:select_features:57 - Univariate selected 25 features
+2025-09-28 04:31:02 | INFO     | src.features.selection:select_features:64 - Applying tree-based feature selection
+2025-09-28 04:33:04 | INFO     | src.features.selection:select_features:73 - Tree-based selected 20 features
+2025-09-28 04:33:04 | INFO     | src.features.selection:select_features:80 - Applying correlation-based feature selection
+2025-09-28 04:33:04 | INFO     | src.features.selection:select_features:84 - Correlation-based selected 15 features
+2025-09-28 04:33:04 | INFO     | src.features.selection:get_consensus_features:114 - Selected 18 consensus features
+2025-09-28 04:33:04 | INFO     | train:_select_features:215 - Selected 18 features from 41 total features
+2025-09-28 04:33:04 | INFO     | train:_train_models:259 - Starting model training
+2025-09-28 04:33:04 | INFO     | train:_train_models:262 - Training 6 models: ['random_forest', 'gradient_boosting', 'extra_trees', 'ada_boost', 'xgboost', 'lightgbm']
+2025-09-28 04:33:04 | INFO     | train:_train_models:303 - Training random_forest
+2025-09-28 04:33:04 | INFO     | src.models.base:fit:44 - Training Random Forest
+2025-09-28 04:35:03 | INFO     | src.models.base:fit:53 - Random Forest training completed
+2025-09-28 04:35:04 | INFO     | src.evaluation.metrics:evaluate_model:72 - Evaluating model: random_forest
+2025-09-28 04:35:04 | INFO     | src.evaluation.metrics:evaluate_model:104 - Model random_forest - R²: 0.4021, RMSE: 0.1096
+2025-09-28 04:35:04 | INFO     | train:_train_models:328 - Completed random_forest - R²: 0.4021
+2025-09-28 04:35:04 | INFO     | train:_train_models:303 - Training gradient_boosting
+2025-09-28 04:35:04 | INFO     | src.models.base:fit:44 - Training Gradient Boosting
+2025-09-28 04:35:43 | INFO     | src.models.base:fit:53 - Gradient Boosting training completed
+2025-09-28 04:35:43 | INFO     | src.evaluation.metrics:evaluate_model:72 - Evaluating model: gradient_boosting
+2025-09-28 04:35:43 | INFO     | src.evaluation.metrics:evaluate_model:104 - Model gradient_boosting - R²: 0.4364, RMSE: 0.1064
+2025-09-28 04:35:43 | INFO     | train:_train_models:328 - Completed gradient_boosting - R²: 0.4364
+2025-09-28 04:35:43 | INFO     | train:_train_models:303 - Training extra_trees
+2025-09-28 04:35:43 | INFO     | src.models.base:fit:44 - Training Extra Trees
+2025-09-28 04:36:12 | INFO     | src.models.base:fit:53 - Extra Trees training completed
+2025-09-28 04:36:12 | INFO     | src.evaluation.metrics:evaluate_model:72 - Evaluating model: extra_trees
+2025-09-28 04:36:12 | INFO     | src.evaluation.metrics:evaluate_model:104 - Model extra_trees - R²: 0.3974, RMSE: 0.1101
+2025-09-28 04:36:12 | INFO     | train:_train_models:328 - Completed extra_trees - R²: 0.3974
+2025-09-28 04:36:12 | INFO     | train:_train_models:303 - Training ada_boost
+2025-09-28 04:36:12 | INFO     | src.models.base:fit:44 - Training AdaBoost
+2025-09-28 04:36:19 | INFO     | src.models.base:fit:53 - AdaBoost training completed
+2025-09-28 04:36:19 | INFO     | src.evaluation.metrics:evaluate_model:72 - Evaluating model: ada_boost
+2025-09-28 04:36:19 | INFO     | src.evaluation.metrics:evaluate_model:104 - Model ada_boost - R²: -0.5073, RMSE: 0.1741
+2025-09-28 04:36:19 | INFO     | train:_train_models:328 - Completed ada_boost - R²: -0.5073
+2025-09-28 04:36:19 | INFO     | train:_train_models:303 - Training xgboost
+2025-09-28 04:36:19 | INFO     | src.models.base:fit:44 - Training XGBoost
+2025-09-28 04:36:20 | INFO     | src.models.base:fit:53 - XGBoost training completed
+2025-09-28 04:36:20 | INFO     | src.evaluation.metrics:evaluate_model:72 - Evaluating model: xgboost
+2025-09-28 04:36:20 | INFO     | src.evaluation.metrics:evaluate_model:104 - Model xgboost - R²: 0.4288, RMSE: 0.1072
+2025-09-28 04:36:20 | INFO     | train:_train_models:328 - Completed xgboost - R²: 0.4288
+2025-09-28 04:36:20 | INFO     | train:_train_models:303 - Training lightgbm
+2025-09-28 04:36:20 | INFO     | src.models.base:fit:44 - Training LightGBM
+2025-09-28 04:36:23 | INFO     | src.models.base:fit:53 - LightGBM training completed
+2025-09-28 04:36:23 | INFO     | src.evaluation.metrics:evaluate_model:72 - Evaluating model: lightgbm
+2025-09-28 04:36:23 | INFO     | src.evaluation.metrics:evaluate_model:104 - Model lightgbm - R²: 0.4391, RMSE: 0.1062
+2025-09-28 04:36:23 | INFO     | train:_train_models:328 - Completed lightgbm - R²: 0.4391
+2025-09-28 04:36:23 | INFO     | train:_train_models:334 - Successfully trained 6 models
+2025-09-28 04:36:23 | INFO     | train:_select_best_model:355 - Best model selected: lightgbm (R² = 0.4391)
+2025-09-28 04:36:23 | INFO     | train:_generate_final_predictions:360 - Generating final predictions on test set
+2025-09-28 04:36:23 | INFO     | train:_generate_final_predictions:372 - Test predictions saved to submission.csv
+2025-09-28 04:36:23 | INFO     | train:_generate_visualizations:378 - Generating visualizations
+2025-09-28 04:36:23 | INFO     | src.evaluation.visualization:_create_plotly_comparison:99 - Model comparison plot saved to results\plots\model_comparison.html
+2025-09-28 04:36:26 | INFO     | src.evaluation.visualization:plot_predictions_vs_actual:192 - Predictions vs actual plot saved to results\plots\predictions_vs_actual_lightgbm.png
+2025-09-28 04:36:29 | INFO     | src.evaluation.visualization:plot_residuals_analysis:243 - Residuals analysis plot saved to results\plots\residuals_analysis_lightgbm.png
+2025-09-28 04:36:30 | INFO     | src.evaluation.visualization:plot_feature_importance:282 - Feature importance plot saved to results\plots\feature_importance_lightgbm.png
+2025-09-28 04:36:32 | INFO     | src.evaluation.visualization:plot_predictions_vs_actual:192 - Predictions vs actual plot saved to results\plots\predictions_vs_actual_gradient_boosting.png
+2025-09-28 04:36:35 | INFO     | src.evaluation.visualization:plot_residuals_analysis:243 - Residuals analysis plot saved to results\plots\residuals_analysis_gradient_boosting.png
+2025-09-28 04:36:37 | INFO     | src.evaluation.visualization:plot_feature_importance:282 - Feature importance plot saved to results\plots\feature_importance_gradient_boosting.png
+2025-09-28 04:36:38 | INFO     | src.evaluation.visualization:plot_predictions_vs_actual:192 - Predictions vs actual plot saved to results\plots\predictions_vs_actual_xgboost.png
+2025-09-28 04:36:42 | INFO     | src.evaluation.visualization:plot_residuals_analysis:243 - Residuals analysis plot saved to results\plots\residuals_analysis_xgboost.png
+2025-09-28 04:36:43 | INFO     | src.evaluation.visualization:plot_feature_importance:282 - Feature importance plot saved to results\plots\feature_importance_xgboost.png
+2025-09-28 04:36:43 | INFO     | train:_generate_visualizations:412 - Visualizations completed successfully
+2025-09-28 04:36:43 | INFO     | train:_generate_reports:419 - Generating reports
+2025-09-28 04:36:43 | INFO     | train:_generate_reports:434 - Reports generated and saved
+2025-09-28 04:36:43 | INFO     | train:_save_results:560 - Saving results and model artifacts
+2025-09-28 04:36:43 | INFO     | train:_save_results:600 - All results saved to results
+2025-09-28 04:36:43 | INFO     | train:run:134 - Pipeline completed successfully. Best model: lightgbm
+2025-09-28 04:36:43 | INFO     | __main__:main:149 - Pipeline completed successfully!
+2025-09-28 04:36:43 | INFO     | __main__:main:150 - Results saved to: results
+2025-09-28 04:36:43 | INFO     | __main__:main:156 - Best model: lightgbm (R² = 0.4391)
