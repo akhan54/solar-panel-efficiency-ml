@@ -1,0 +1,69 @@
+project:
+  name: "Solar Panel Efficiency Prediction"
+  version: "1.0.0"
+  random_seed: 42
+
+data:
+  raw_path: "data/raw/"
+  processed_path: "data/processed/"
+  train_file: "train.csv"
+  test_file: "test.csv"
+  target_column: "efficiency"
+  id_column: "id"
+
+preprocessing:
+  test_size: 0.2
+  cv_folds: 5
+  outlier_threshold: 3
+  missing_threshold: 0.3
+
+features:
+  numerical:
+    - "temperature"
+    - "irradiance"
+    - "humidity"
+    - "panel_age"
+    - "maintenance_count"
+    - "soiling_ratio"
+    - "voltage"
+    - "current"
+    - "module_temperature"
+    - "cloud_coverage"
+    - "wind_speed"
+    - "pressure"
+  
+  categorical:
+    - "string_id"
+    - "error_code"
+    - "installation_type"
+
+modeling:
+  optimize_hyperparams: true
+  n_trials: 50
+  timeout: 3600
+  metrics:
+    primary: "r2"
+    secondary: ["mae", "rmse", "mape"]
+
+output:
+  results_path: "results/"
+  models_path: "models/"
+  plots_path: "results/plots/"
+  reports_path: "results/reports/"
+
+
+physics:
+  # Standard Test Conditions for photovoltaic cells
+  stc_temperature: 25.0  # °C - Standard cell temperature
+  stc_irradiance: 1000.0  # W/m² - Standard irradiance level
+  
+  # Temperature coefficient for mono-crystalline silicon (typical)
+  temp_coefficient: -0.004  # -0.4%/°C efficiency loss per degree above 25°C
+  
+  # Performance thresholds
+  high_temp_threshold: 40.0  # °C - Above this, significant efficiency loss
+  low_irradiance_threshold: 200.0  # W/m² - Below this, poor performance
+  
+  # Environmental stress factors
+  high_humidity_threshold: 60.0  # % - Above this affects electrical properties
+  soiling_impact_factor: 0.03   # 3% efficiency loss per unit soiling ratio

@@ -1,0 +1,37 @@
+linear_regression:
+  fit_intercept: true
+  normalize: false
+
+ridge:
+  alpha: [0.1, 1.0, 10.0, 100.0]
+  max_iter: 1000
+
+lasso:
+  alpha: [0.001, 0.01, 0.1, 1.0]
+  max_iter: 1000
+
+random_forest:
+  n_estimators: [100, 200, 300]
+  max_depth: [10, 20, 30, null]
+  min_samples_split: [2, 5, 10]
+  min_samples_leaf: [1, 2, 4]
+
+xgboost:
+  n_estimators: [100, 200, 300]
+  max_depth: [3, 6, 10]
+  learning_rate: [0.01, 0.1, 0.2]
+  subsample: [0.8, 0.9, 1.0]
+  colsample_bytree: [0.8, 0.9, 1.0]
+
+lightgbm:
+  n_estimators: [100, 200, 300]
+  max_depth: [3, 6, 10]
+  learning_rate: [0.01, 0.1, 0.2]
+  num_leaves: [31, 50, 100]
+  feature_fraction: [0.8, 0.9, 1.0]
+
+neural_network:
+  hidden_layer_sizes: [(50,), (100,), (100, 50), (150, 100, 50)]
+  activation: ["relu", "tanh"]
+  alpha: [0.0001, 0.001, 0.01]
+  learning_rate: ["constant", "adaptive"]
