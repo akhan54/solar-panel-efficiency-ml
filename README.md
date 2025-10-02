@@ -47,7 +47,7 @@ By building these physics-based features, the models didn’t have to “guess�
 
 # Dataset
 
-The dataset I used for this project is stored in the `data/raw/` folder of the repository. There are a couple of CSV files in there which hold the raw solar panel performance data that the models are trained and tested on.
+The dataset used in this project was obtained from Kaggle: [**Solar Panels Performance Dataset**](https://www.kaggle.com/datasets/rxhulshxrmx/solar-panels-performance) It is stored in the `data/raw/` folder of the repository. There are a couple of CSV files in there which hold the raw solar panel performance data that the models are trained and tested on.
 
 The main CSV file includes both **environmental conditions** and **operational parameters** that influence solar panel efficiency. Some of the key columns are:
 
