@@ -101,6 +101,10 @@ Once you're inside the folder, install all the required libraries/dependencies b
 
 `pip install -r requirements.txt`
 
+If it doesn't work for some reason, then install the dependencies by typing the following:
+
+`pip install numpy pandas scikit-learn xgboost lightgbm matplotlib seaborn plotly pyyaml loguru scipy`
+
 Now, you can run the pipeline in two different modes depending on what you want to test.
 
 If you run:
